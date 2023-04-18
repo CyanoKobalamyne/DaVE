@@ -227,7 +227,7 @@ class PWLWaveLUTGenerator(PWLWaveGenerator):
         if dt != self._dx:
           dt = dt - self._dx
         else:
-          print "Grid is too large!!! Decrease grid setting."
+          print("Grid is too large!!! Decrease grid setting.")
           sys.exit
         return dt
     return dt

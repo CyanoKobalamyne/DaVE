@@ -51,7 +51,7 @@ for p in input_ports:
   xidx_str += '[%s]' %('x_'+p+'_Size')
 
 for p in output_ports:
-  print 'real ly_%s%s;' %(p, xidx_str)
+  print('real ly_%s%s;' %(p, xidx_str))
 }@
 
 /////////////////////
@@ -62,7 +62,7 @@ initial begin
 @{
 for p in input_ports: 
   for i,d in enumerate(x[p]):
-    print '%s[%d] = %f;' %('lx_'+p, i, d)
+    print('%s[%d] = %f;' %('lx_'+p, i, d))
 
 # Do this intelligently
 rs = len(x[input_ports[0]])
@@ -70,7 +70,7 @@ cs = len(x[input_ports[1]])
 for p in output_ports:
   for i in range(rs):
     for j in range(cs):
-      print 'ly_%s[%d][%d] = %f;' %(p, i, j, y[p][i*cs+j])
+      print('ly_%s[%d][%d] = %f;' %(p, i, j, y[p][i*cs+j]))
 }@
 
 end
@@ -167,7 +167,7 @@ end
 endfunction
 '''
 for p in input_ports: 
-  print tpl.format(input=p, mname=module_name)
+  print(tpl.format(input=p, mname=module_name))
 }@
 
 // calculate the next event where inflection of transfer curve 
@@ -199,7 +199,7 @@ end
 endfunction
 '''
 for p in input_ports: 
-  print tpl.format(input=p, mname=module_name)
+  print(tpl.format(input=p, mname=module_name))
 
 }@
 

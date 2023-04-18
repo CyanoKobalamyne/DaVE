@@ -45,12 +45,12 @@ class TxfCurveGenerator(object):
     else:
       rx, ry = self._reduce_data(x, y, param['etol'])
     mname = param['module_name']
-    print '=== Generating "%s" ===' % (mname+'.v')
-    print '# of original data: %d' % len(x)
+    print('=== Generating "%s" ===' % (mname+'.v'))
+    print('# of original data: %d' % len(x))
     if use_userdata:
-      print 'No data reduction is selected'
+      print('No data reduction is selected')
     else:
-      print '# of reduced data: %d' % len(rx)
+      print('# of reduced data: %d' % len(rx))
 
     lutx, luty = self._generate_lut(rx, ry)
     self._generate(dict(param, **{'lutx': lutx, 'luty': luty, 'ly': ry}))
@@ -67,7 +67,7 @@ class TxfCurveGenerator(object):
     i = 1
     while i < len(x):
       if (i%1000==1):
-        print '%d/%d' %(i,len(x))
+        print('%d/%d' %(i,len(x)))
       for j in range(i+1, len(x)):
         slope = (y[j]-ry[-1])/(x[j]-rx[-1])
         fn = lambda x: slope*(x-rx[-1])+ry[-1]

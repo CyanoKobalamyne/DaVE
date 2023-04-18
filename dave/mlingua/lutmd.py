@@ -60,7 +60,7 @@ class LookUpTablemD(object):
     ''' check if input param contains all the necessary keys '''
     missed_keys = [k for k in self.param_keys if k not in param]
     if len(missed_keys) > 0:
-      print 'There are missing keys (%s) in the configuration file.' % missed_keys
+      print('There are missing keys (%s) in the configuration file.' % missed_keys)
       self.__terminate_w_error()
 
   def __process_x(self):
@@ -70,21 +70,21 @@ class LookUpTablemD(object):
     pass
 
   def __display_config(self):
-    print '-'*23, ' Configuration summary ', '-'*23
-    print '* Verilog module name  : %s' % self._param['module_name']
-    print '* Module description   : %s' % self._param['description']
-    print '* List of output ports : %s' %( ', '.join(['"%s"' % p for p in sorted(self._param['y'].keys())]))
-    print '* List of input ports  : %s' %( ', '.join(['"%s"' % p for p in sorted(self._param['x'].keys())]))
-    print '* Input indexing order : %s' %( ''.join(['[%s]'   % p for p in self._param['index_order']]))
+    print('-'*23, ' Configuration summary ', '-'*23)
+    print('* Verilog module name  : %s' % self._param['module_name'])
+    print('* Module description   : %s' % self._param['description'])
+    print('* List of output ports : %s' %( ', '.join(['"%s"' % p for p in sorted(self._param['y'].keys())])))
+    print('* List of input ports  : %s' %( ', '.join(['"%s"' % p for p in sorted(self._param['x'].keys())])))
+    print('* Input indexing order : %s' %( ''.join(['[%s]'   % p for p in self._param['index_order']])))
     if self._param['interpolation'] == True:
       if self._param['discretized']:
-        print '* Input resolution     : %s' %( ', '.join(['%s(%s)' %(p, to_engr(self._param['input_resolution'][i])) for i, p in enumerate(self._param['index_order'])]))
+        print('* Input resolution     : %s' %( ', '.join(['%s(%s)' %(p, to_engr(self._param['input_resolution'][i])) for i, p in enumerate(self._param['index_order'])])))
       else:
-        print '* Input resolution     : continuous (no "input_resolution" field exists)'
+        print('* Input resolution     : continuous (no "input_resolution" field exists)')
     else:
-      print '* No interpolation will be performed'
-    print '* Suppress out of bound message in the generated module: %s' % ('Yes' if self._param['suppress_ob_message'] else 'No')
-    print '-'*27, ' End of summary ', '-'*27, '\n'
+      print('* No interpolation will be performed')
+    print('* Suppress out of bound message in the generated module: %s' % ('Yes' if self._param['suppress_ob_message'] else 'No'))
+    print('-'*27, ' End of summary ', '-'*27, '\n')
 
   def __check_x(self):
     ''' check if 
@@ -99,10 +99,10 @@ class LookUpTablemD(object):
       if sorted(_v) != _v:
         res.append(k)
     if res != []:
-      print '[Error] x values should be in acending order !!!'
+      print('[Error] x values should be in acending order !!!')
       err = True
     if sorted(self._param['x'].keys())!=sorted(self._param['index_order']):
-      print '[Error] input ports in "x" is inconsistent with those in "index_order" !!!'
+      print('[Error] input ports in "x" is inconsistent with those in "index_order" !!!')
       err = True
     if err:
       self.__terminate_w_error()
@@ -110,14 +110,14 @@ class LookUpTablemD(object):
     self._param.update({'discretized': 'input_resolution' in self._param})
 
   def __terminate_w_error(self):
-    print 'The program is terminated with error.'
+    print('The program is terminated with error.')
     sys.exit()
     
 
   def __gen(self):
     if sorted(self._param['index_order']) != sorted(self._param['x'].keys()):
-      print '[Error] configuration file error !!!'
-      print '[Error] items in "index_order" does not match with keys in "x"'
+      print('[Error] configuration file error !!!')
+      print('[Error] items in "index_order" does not match with keys in "x"')
 
     dev_mode = True
     basename = self._param['module_name']
@@ -136,7 +136,7 @@ class LookUpTablemD(object):
       dst_file = basename + '.v'
       shutil.copyfile(tempfile, dst_file)
       os.remove(tempfile)
-      print '[Info] %s file is generated' % dst_file
+      print('[Info] %s file is generated' % dst_file)
     else:
       try:
         dst_file = basename+'.vp'
@@ -145,7 +145,7 @@ class LookUpTablemD(object):
         shutil.copyfile(tempfile+'p', dst_file)
         os.remove(tempfile)
         os.remove(tempfile+'p')
-        print '[Info] %s file is generated' %(dst_file)
+        print('[Info] %s file is generated' %(dst_file))
 
       except KeyboardInterrupt:
         try:
@@ -155,9 +155,9 @@ class LookUpTablemD(object):
           pass
       except:
         os.remove(tempfile)
-        print '[Error] Unknown error ocurred. Check some of those !!!'
-        print ' - Check out VCS environment'
-        print ' - x & y data are available'
+        print('[Error] Unknown error ocurred. Check some of those !!!')
+        print(' - Check out VCS environment')
+        print(' - x & y data are available')
         self.__terminate_w_error()
     if self.__ehdnsxmgorfkdlt:
       pass

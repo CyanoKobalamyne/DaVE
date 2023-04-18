@@ -172,9 +172,9 @@ finish_sim xfinish(.in(ss_detect));
 """
   t = TestBenchWire(pref_filename)
   t.load_testbench(body)
-  print t.get_testbench()
-  print t.get_wires()
-  print t.get_testbench_port()
+  print(t.get_testbench())
+  print(t.get_wires())
+  print(t.get_testbench_port())
 
 if __name__=="__main__":
   main()

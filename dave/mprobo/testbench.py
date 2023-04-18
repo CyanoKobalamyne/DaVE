@@ -209,10 +209,10 @@ def main():
   pref_filename = os.path.join(os.environ['DAVE_SAMPLES'], 'library', 'model', 'port_xref.cfg')
   tb = TestBenchCDSInterface()('/home/bclim/cktbook/opusdb', 'dave_prim', 'test2', 'schematic', pref_filename)
   if tb != None:
-    print 'Testbench: '
-    print ''
-    print tb[0]
-    print 'PORTS: ', tb[1]
+    print('Testbench: ')
+    print('')
+    print(tb[0])
+    print('PORTS: ', tb[1])
 
 if __name__=="__main__":
   main()

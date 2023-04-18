@@ -28,7 +28,7 @@ def interpolate_env(value, logger=None):
       if logger:
         self._logger.warn(msg)
       else:
-        print msg
+        print(msg)
   return newvalue
 
 def print_order(val):

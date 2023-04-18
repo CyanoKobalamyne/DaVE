@@ -105,9 +105,9 @@ always @@(@(si_sensitivity) or wakeup) begin
       yo1 = so.b;
 @{
 if filter_input_datatype == 'real':
-  print '      xi0 = si;'
+  print('      xi0 = si;')
 elif filter_input_datatype == 'pwl':
-  print '      xi0 = si.a; xi1 = si.b;'
+  print('      xi0 = si.a; xi1 = si.b;')
 }@
       //yo1 = fn_1_derivative_@(module_name)(t_cur-t0, si_at_t0, xi0, xi1, yo0, yo1 @fn_input_s); 
       si_at_t0 = si;

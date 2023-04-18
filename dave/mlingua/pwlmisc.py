@@ -21,7 +21,7 @@ def read_cfg(cfg_file):
   try:
     __import__(cfg) # import the cfg file 
   except:
-    print '[Error] Check out the configuration file %s.py' %cfg
+    print('[Error] Check out the configuration file %s.py' %cfg)
     sys.exit()
   __cfg = sys.modules[cfg] # get cfg module handle
   return dict([(k,getattr(__cfg, k)) for k in dir(__cfg) if not k.startswith('__')])

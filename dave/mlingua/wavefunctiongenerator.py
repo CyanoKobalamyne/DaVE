@@ -63,7 +63,7 @@ class WaveFunction(object):
     return sym.expand(sym.diff(self.__symexpr, var, order))
 
   def xxx(self):
-    print re.search(r'\((w+)\)', self.__expr_fn).group(1)
+    print(re.search(r'\((w+)\)', self.__expr_fn).group(1))
 
 def main():
   import doctest

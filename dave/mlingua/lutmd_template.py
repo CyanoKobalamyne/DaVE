@@ -54,7 +54,7 @@ timeprecision `DAVE_tIMEUNIT;
 parameter integer nDim = @(nDim);
 @{
 for i, p in enumerate(input_ports):
-  print 'parameter integer x_%s_Size = %d;' %(p, inSize[i])
+  print('parameter integer x_%s_Size = %d;' %(p, inSize[i]))
 }@
 @[for p in input_ports]real lx_@(p)[x_@(p)_Size-1:0]; 
 @[end for]
@@ -64,7 +64,7 @@ for p in input_ports:
   xidx_str += '[%s]' %('x_'+p+'_Size')
 
 for p in output_ports:
-  print 'real ly_%s%s;' %(p, xidx_str)
+  print('real ly_%s%s;' %(p, xidx_str))
 }@
 
 /////////////////////
@@ -75,7 +75,7 @@ initial begin
 @{
 for p in input_ports: 
   for i,d in enumerate(x[p]):
-    print '%s[%d] = %f;' %('lx_'+p, i, d)
+    print('%s[%d] = %f;' %('lx_'+p, i, d))
 
 # Do this intelligently
 def y_indexing(i, pSize):
@@ -93,7 +93,7 @@ def y_indexing(i, pSize):
 
 for p in output_ports:
   for i in range(len(y[p])):
-    print 'ly_%s%s = %e;' %(p, y_indexing(i, inSize), y[p][i])
+    print('ly_%s%s = %e;' %(p, y_indexing(i, inSize), y[p][i]))
 }@
 
 end
@@ -131,9 +131,9 @@ real dTr;
 
 @{
 if nDim == 2:
-  print 'real x00, x01, x0, x10, x11, x1, f00, f01, f10, f11;'
+  print('real x00, x01, x0, x10, x11, x1, f00, f01, f10, f11;')
 elif nDim == 3:
-  print 'real x00, x01, x0, x10, x11, x1, x20, x21, x2, f000, f001, f010, f011, f100, f101, f110, f111;'
+  print('real x00, x01, x0, x10, x11, x1, x20, x21, x2, f000, f001, f010, f011, f100, f101, f110, f111;')
 }@
 
 initial #1 ->> wakeup;
@@ -237,7 +237,7 @@ tpl  = '''
 '''
 if suppress_ob_message == False:
   for p in input_ports: 
-    print tpl.format(input=p, mname=module_name)
+    print(tpl.format(input=p, mname=module_name))
 }@
 
     // calculate next event time interval (dt) for each input
@@ -254,9 +254,9 @@ if suppress_ob_message == False:
 
 @{
 if interpolation and discretized:
-  print "     // snap input values to user-defined grid if interpolation is true and input_resolution is set"
+  print("     // snap input values to user-defined grid if interpolation is true and input_resolution is set")
   for i, p in enumerate(input_ports):
-    print "     {input}0 = int'({input}0/{res})*{res};".format(input=p, res=input_resolution[i])
+    print("     {input}0 = int'({input}0/{res})*{res};".format(input=p, res=input_resolution[i]))
 }@
 
     // retrieve outputs from LUT
@@ -295,7 +295,7 @@ end
 endfunction
 '''
 for p in input_ports: 
-  print tpl.format(input=p, mname=module_name, a="'{", b="}")
+  print(tpl.format(input=p, mname=module_name, a="'{", b="}"))
 }@
 
 // calculate the next event where inflection of transfer curve 
@@ -337,7 +337,7 @@ end
 endfunction
 '''
 for p in input_ports: 
-  print tpl.format(input=p, mname=module_name)
+  print(tpl.format(input=p, mname=module_name))
 
 }@
 

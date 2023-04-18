@@ -38,9 +38,9 @@ class PWLBasisFunctionExpr(object):
     expr_1 = ' + '.join(filter_None(t[1]))
     self.__expr, self.__expr_fn = self.__process_expr(expr)
     self.__expr_1, self.__expr_1_fn = self.__process_expr(expr_1)
-    print ''
-    print 'Expression for PWL approximation = ', self.__expr
-    print 'Expression for calculating time interval = ', self.__expr_1
+    print('')
+    print('Expression for PWL approximation = ', self.__expr)
+    print('Expression for calculating time interval = ', self.__expr_1)
             
   def get_fn_str(self):
     return self.__expr, self.__expr_1

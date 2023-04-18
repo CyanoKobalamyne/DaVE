@@ -10,9 +10,9 @@ class PWLSignal(object):
       initial value and its slope over time 
 
   >>> sig = PWLSignal(0.1, 1.0)
-  >>> print sig.v0()
+  >>> print(sig.v0())
   0.1
-  >>> print sig.slope()
+  >>> print(sig.slope())
   1.0
   '''
   def __init__(self, v0=0.0, slope=0.0):
@@ -99,7 +99,7 @@ class PWLVector(object):
     return map(self.at, list(x))
 
   def __print_vector(self):
-    print self.get_series()
+    print(self.get_series())
 
   def get_series(self):
     return [(x, v.v0(), v.slope()) for x, v in self.__data]

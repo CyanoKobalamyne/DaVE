@@ -54,12 +54,12 @@ class Txf2Tran(object):
     return self.__yt
 
   def __print_fn(self, s, f):
-    print '='*len(s)
-    print s
-    print '='*len(s)
-    print ''
+    print('='*len(s))
+    print(s)
+    print('='*len(s))
+    print('')
     pprint(f)
-    print '\n'
+    print('\n')
   
   def __get_order(self, expr):
     s = Symbol('s', real=True)
@@ -196,9 +196,9 @@ class Txf2Tran(object):
     self.__print_fn('Complete response in s-domain after partial fraction decomposition', Ys_pfd)
     self.__print_fn('Complete response in time domain to %s input' % in_str, yt)
     
-    print '='*40
-    print 'Nonpretty expression for y(t)' 
-    print '='*40
-    print 'y(t)= ', yt
+    print('='*40)
+    print('Nonpretty expression for y(t)')
+    print('='*40)
+    print('y(t)= ', yt)
     
     return yt_basis

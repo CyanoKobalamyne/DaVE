@@ -26,13 +26,13 @@ class RunACSimulation(object):
     for f in freq:
       param.update({'ac_frequency': f})
       meas = self.__runsim(param)
-      print 'Frequency, %s = %e, %e' %(param['signal_out'], f, meas)
+      print('Frequency, %s = %e, %e' %(param['signal_out'], f, meas))
       out.append(meas)
     return freq, np.array(out)
   
   def __run_dc(self, param):
     op = self.__runsim(param, ac=False)
-    print 'DC operating point of %s=%e' %(param['signal_out'], op)
+    print('DC operating point of %s=%e' %(param['signal_out'], op))
     return op
 
   def __runsim(self, param, ac=True):

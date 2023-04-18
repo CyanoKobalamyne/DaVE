@@ -39,7 +39,7 @@ class SchemaConfig(object):
     for (section_list, key, _) in self.vdt_errors:
       if key is None:
         pass
-        #print 'The following sections "%s" is(are) missing in the %s configuration' % ('.'.join(section_list), self.cfgtype)
+        #print('The following sections "%s" is(are) missing in the %s configuration' % ('.'.join(section_list), self.cfgtype))
       else:
         msg = mcode.ERR_011 % (key, ','.join(section_list))
         if key in error_key:

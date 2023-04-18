@@ -1434,11 +1434,11 @@ class SimulatorConfigSection:
     self.ncams_group.grid(row=0, column=1, rowspan=2, sticky='NWE')
 
   def _mdl_opt_callback(self, tag):
-    #print 'Model (%s) is selected' % tag
+    #print('Model (%s) is selected' % tag)
     self._ncams_callback()
 
   def _sim_opt_callback(self, tag):
-    #print 'Simulator (%s) is selected' % tag
+    #print('Simulator (%s) is selected' % tag)
     self._ncams_callback()
   
   def _ncams_callback(self):
