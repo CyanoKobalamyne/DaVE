@@ -19,8 +19,8 @@ class LookUpTablemD(object):
   '''
   param_keys = ['module_name', 'description', 'x', 'y', 'dig_mode', 'ehdnsxmgorfkdlt']
   def_param = {
-    'licensor': 'Byongchan Lim'
-    'contact' : 'dave.ikarus@gmail.com'
+    'licensor': 'Byongchan Lim',
+    'contact' : 'dave.ikarus@gmail.com',
     'module_name': 'vlog_lut',
     'description': ''' ''',
     'interpolation': False,
