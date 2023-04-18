@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from empyinterface import EmpyInterface
 import numpy as np
 import os
 import scipy.interpolate
@@ -8,8 +9,7 @@ import random
 import shutil
 import subprocess
 
-from empyinterface import EmpyInterface
-import txf_template
+from dave.mlingua import txf_template
 
 
 

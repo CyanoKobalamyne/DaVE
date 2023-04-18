@@ -1,5 +1,6 @@
 # Verilog model generator of PWL filter model
 
+from empyinterface import EmpyInterface
 import sys
 import os
 import numpy as np
@@ -10,11 +11,10 @@ import string
 import random
 import time
 
-from empyinterface import EmpyInterface
-from pwlbasisfunction import PWLBasisFunctionExpr
-from pwlgenerator import PWLWaveLUTGenerator
-from txf2tran import Txf2Tran
-import filter_template 
+from dave.mlingua.pwlbasisfunction import PWLBasisFunctionExpr
+from dave.mlingua.pwlgenerator import PWLWaveLUTGenerator
+from dave.mlingua.txf2tran import Txf2Tran
+from dave.mlingua import filter_template
 
 class PWLConfigLoader(object):
   ''' Load python configuration file for Verilog model generation '''

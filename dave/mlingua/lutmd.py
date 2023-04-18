@@ -11,8 +11,9 @@ import sys
 import time
 import shutil
 import subprocess
-import lutmd_template
-from misc import to_engr
+
+from dave.mlingua import lutmd_template
+from dave.mlingua.misc import to_engr
 
 class LookUpTablemD(object):
   ''' build a multi-D LUT from hspice simulation
