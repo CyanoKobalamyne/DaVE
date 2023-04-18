@@ -165,7 +165,7 @@ class PWLLUTBuilder(object):
     self.run(suffix)
 
   def run(self, suffix):
-    self._validrf = filter(lambda x: x[0] in ['exp', 't*exp', 'exp*cos', 'cos'], self.rf)
+    self._validrf = [x for x in self.rf if x[0] in ['exp', 't*exp', 'exp*cos', 'cos']]
     self.pwl = []
     for f in self._validrf:
       self.pwl.append(PWLWaveLUTGenerator(self.etol/len(self._validrf), ''))

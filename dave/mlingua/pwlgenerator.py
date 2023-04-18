@@ -220,7 +220,7 @@ class PWLWaveLUTGenerator(PWLWaveGenerator):
       pwl.set_init(x, self.f_at(x)) 
       pwl.add(x+dt, self.f_at(x+dt))
       xtest = [t for t in np.arange(x, x+dt, self.res)]
-      y = map(self.f_at, xtest)
+      y = list(map(self.f_at, xtest))
       err = np.array(pwl.predict(xtest)) - np.array(y) # error 
       maxerr = max(abs(err))
       if maxerr > self._etol:

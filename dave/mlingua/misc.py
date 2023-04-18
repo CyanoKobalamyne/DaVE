@@ -220,7 +220,7 @@ def get_basename(filename):
 
 def lower_list(data):
   ''' lower all strings in a list '''
-  return map(lambda x: string.lower(x),data)
+  return [string.lower(x) for x in data]
 
 def flatten_list(l):
   ''' output list out of lists '''
@@ -279,19 +279,19 @@ def rmfile(filename):
 def print_section(msg, level=1, leading_newline=True):
   ''' print a message with a section deliminator at the top/bottom of the message '''
   nc = len(msg)
-  newline = '\n' if leading_newline else None
+  newlines = ['\n'] if leading_newline else []
   if level==1:
-    return filter(None, [newline, '='*nc, msg, '='*nc])
+    return [*newlines, '='*nc, msg, '='*nc]
   elif level==2:
-    return filter(None, [newline, msg, '*'*nc])
+    return [*newlines, msg, '*'*nc]
   elif level==3:
-    return filter(None, [newline, msg, '-'*nc])
+    return [*newlines, msg, '-'*nc]
   else:
-    return filter(None, [newline, msg, '^'*nc])
+    return [*newlines, msg, '^'*nc]
 
 def print_end_msg(msg, char='=', leading_newline=True):
-  newline = '\n' if leading_newline else None
-  return filter(None, [newline, '%s %s %s' %(char, msg, char)])
+  newlines = ['\n'] if leading_newline else []
+  return [*newlines, '%s %s %s' %(char, msg, char)]
 
 def get_largest_in_abs(values):
   ''' return a value with the largest absolute value in a list '''

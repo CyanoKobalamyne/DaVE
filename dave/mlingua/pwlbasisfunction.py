@@ -31,9 +31,9 @@ class PWLBasisFunctionExpr(object):
     for t in term:
       if t[0] not in self.basis:
         return '', ''
-    t = zip(*[self.basis[t[0]](t[1:]) for t in term])
+    t = list(zip(*[self.basis[t[0]](t[1:]) for t in term]))
     def filter_None(inlist):
-      return filter(lambda x: x != None, inlist)
+      return [x for x in inlist if x != None]
     expr = ' + '.join(filter_None(t[0]))
     expr_1 = ' + '.join(filter_None(t[1]))
     self.__expr, self.__expr_fn = self.__process_expr(expr)

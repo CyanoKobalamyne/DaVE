@@ -77,7 +77,7 @@ def main():
   dt = 30e-12
   tau = 1.2e-9
   no_tau = 10
-  samples = zip(*[(v/tau, 1.0/np.exp(v/tau)) for v in np.arange(0.0, no_tau*tau+dt, dt)])
+  samples = list(zip(*[(v/tau, 1.0/np.exp(v/tau)) for v in np.arange(0.0, no_tau*tau+dt, dt)]))
   xs =  np.array(samples[0])
   ys =  np.array(samples[1])
   LookUpTable1D('lut_exp', xs, ys)

@@ -46,7 +46,7 @@ class PWLVector(object):
 
   '''
   def __init__(self, x=[], y=[]):
-    self.__data = zip(x, y)
+    self.__data = list(zip(x, y))
     assert len(x) == len(y), 'Vector size mismatch'
 
   def set_init(self, x, y):
@@ -78,7 +78,8 @@ class PWLVector(object):
     plt.scatter(xs, ys, c='r', marker='o', s=40) # plot inflection points
     if annotate:
       antext = ['(%s,%s)' %(to_engr(xs[i]), to_engr(ys[i])) for i in range(len(ys))]
-      map(lambda x: plt.text(*x), zip(xs, ys, antext)) # annotate inflection points
+      for x in zip(xs, ys, antext): # annotate inflection points
+        plt.text(*x)
     if y==None:
       plt.plot(x, self.predict(x), **options) # plot predicted points 
     else:
@@ -96,7 +97,7 @@ class PWLVector(object):
     
   def predict(self, x=[]):
     ''' predict the values for given series of x '''
-    return map(self.at, list(x))
+    return list(map(self.at, list(x)))
 
   def __print_vector(self):
     print(self.get_series())
@@ -106,7 +107,7 @@ class PWLVector(object):
 
   def get_inflection_pts(self):
     ''' return inflection points of the Vector '''
-    return zip(*[(x, v.v0()) for x, v in self.__data] + [(self.__x0, self.__y0)])
+    return list(zip(*[(x, v.v0()) for x, v in self.__data] + [(self.__x0, self.__y0)]))
 
   def len(self):
     ''' return the length of this Vector '''
@@ -119,7 +120,7 @@ class PWLVector(object):
 
   def xy(self):
     ''' return x & y '''
-    return zip(*self.__data)
+    return list(zip(*self.__data))
 
   def x(self):
     ''' return x only '''

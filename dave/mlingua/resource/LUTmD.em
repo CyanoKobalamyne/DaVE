@@ -22,7 +22,7 @@
 @# TODO: Indexing in SVerilog is computationally expensive, and I think there is a way to improve this.
 
 @{
-input_ports = x.keys()
+input_ports = list(x.keys())
 output_ports = y.keys()
 nDim = len(input_ports)
 }@
