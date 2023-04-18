@@ -37,7 +37,7 @@ class LinearModelParameter(object):
   def load_model_parameters(self, lm_file):
     ''' load model parameters in YAML '''
     with open(os.path.abspath(lm_file), 'r') as f:
-      self._param = yaml.load(f)
+      self._param = yaml.safe_load(f)
 
   def get_param(self):
     return self._param

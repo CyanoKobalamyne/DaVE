@@ -370,7 +370,7 @@ def read_yaml(filename,default={}):
   val=OrderedDict()
   val.update(default)
   f = get_abspath(filename)
-  val.update(yaml.load(open(f,'r')))
+  val.update(yaml.safe_load(open(f,'r')))
   for k in list(default.keys()):
     if not val[k]: val.update({k:default[k]})
   return val
