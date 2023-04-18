@@ -1,4 +1,4 @@
-from StringIO import StringIO
+from io import StringIO
 
 # up to 2 inputs, the output is interpolated
 # more than 2 inputs, the output is taken from the lower corner value of the lut
