@@ -36,3 +36,4 @@ mLingua/samples/connect/connect_lib/connectLib/.*
 dave.lic
 distribution/*
 .idea
+.vscode
